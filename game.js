@@ -1,24 +1,24 @@
-let cookies = 0;
+let buds = 0;
 let cursors = 0;
 
-const cookieDisplay = document.getElementById('cookie-count');
+const cookieDisplay = document.getElementById('bud-count');
 const cursorDisplay = document.getElementById('cursor-count');
 
 document.getElementById('cookie').addEventListener('click', () => {
-  cookies++;
+  buds++;
   updateDisplay();
 });
 
 function buyCursor() {
-  if (cookies >= 10) {
-    cookies -= 10;
+  if (buds >= 10) {
+    buds -= 10;
     cursors += 1;
     updateDisplay();
   }
 }
 
 setInterval(() => {
-  cookies += cursors;
+  buds += cursors;
   updateDisplay();
 }, 1000);
 
