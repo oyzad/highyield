@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>High Yield Clicker</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    #cookie { font-size: 100px; cursor: pointer; }
+    .shop-item { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div>
+    <div id="cookie">🍪</div>
+    <p>Cookies: <span id="cookie-count">0</span></p>
+  </div>
+  
+  <div id="shop">
+    <h3>Shop</h3>
+    <button class="shop-item" onclick="buyCursor()">Buy Cursor (10 cookies)</button>
+    <p>Cursors: <span id="cursor-count">0</span></p>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
