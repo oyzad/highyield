@@ -1,7 +1,7 @@
 let buds = 0;
 let cursors = 0;
 
-const cookieDisplay = document.getElementById('bud-count');
+const budDisplay = document.getElementById('bud-count');
 const cursorDisplay = document.getElementById('cursor-count');
 
 document.getElementById('cookie').addEventListener('click', () => {
@@ -23,6 +23,6 @@ setInterval(() => {
 }, 1000);
 
 function updateDisplay() {
-  cookieDisplay.textContent = cookies;
+  budDisplay.textContent = cookies;
   cursorDisplay.textContent = cursors;
 }
