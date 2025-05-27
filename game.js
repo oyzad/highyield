@@ -15,7 +15,7 @@ let calculatedBPS = 0;
 
 const strains = ["Sour Diesel","Purple Urkle","Blue Dream","Northern Lights"]
 const strainFile = ["Bud_SD.png", "Bud_PU.png", "Bud_BB.png", "Bud_NL.png"]
-const strainPrices = [500,2000,5000,7500,10000,50000]
+const strainPrices = [500,2000,5000,15000,50000,100000]
 const strainClick = [0,10,15,20,25,40]
 let budFile = "bud_SD.png"; 
 
@@ -35,14 +35,10 @@ const strainSound = new Audio('assets/strain-change.mp3');
 const bud = document.getElementById('bud');
 
 bud.addEventListener('click', () => {
-  // Remove class in case it's already there (to restart animation)
   bud.classList.remove('wobble');
-
-  // Trigger reflow to restart animation
   void bud.offsetWidth;
-  // Add the wobble class
   bud.classList.add('wobble');
-  clickSound.currentTime = 0; // rewind 
+  clickSound.currentTime = 0; 
   clickSound.play();
   buds += clickstrength
   updateDisplay();
@@ -60,7 +56,7 @@ function buyCursor() {
     buySound.play();
     buds -= cursorPrice;
     cursors += 1;
-    cursorPrice = Math.floor(cursorPrice * 1.15);
+    cursorPrice = Math.floor(cursorPrice * 1.5);
     updateShop();
     updateDisplay();
   }
@@ -72,7 +68,7 @@ function buyLight(){
     buds -= lightPrice;
     lights += 1;
     clickstrength += 1;
-    lightPrice = Math.floor(lightPrice * 1.15);
+    lightPrice = Math.floor(lightPrice * 1.25);
     updateShop();
     updateStats();
     updateDisplay();
