@@ -10,7 +10,7 @@ let lightPrice = 50;
 let clickstrength = 1;
 
 const strains = ["Sour Diesel","Purple Urkle","Blue Dream","Northern Lights"]
-const strainFile = ["bud_SD.png", "bud_PU.png", "bud_BB.png", "bud_NL.png"]
+const strainFile = ["Bud_SD.png", "Bud_PU.png", "Bud_BB.png", "Bud_NL.png"]
 const strainPrices = [500,750,1000,1500,2000,5000]
 let budFile = "bud_SD.png"; 
 
