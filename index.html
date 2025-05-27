@@ -12,7 +12,7 @@
 </head>
 <body>
   <div>
-    <div id="bud">🍃</div>
+    <img id="bud" src="assets/bud_SD.png" alt="Bud" width="250" style="cursor:pointer;" />
     <p>Bud: <span id="bud-count">0</span></p>
   </div>
   
@@ -20,8 +20,10 @@
     <h3>Shop</h3>
     <button id="buy-cursor" class="shop-item" onclick="buyCursor()">Buy Cursor</button>
     <button id="buy-light" class="shop-item" onclick="buyLight()">Buy light</button>
+    <button id="upgrade-strain" class="shop-item" onclick="upgradeStrain()">Upgrade Strain</button>
     <p>Cursors: <span id="cursor-count">0</span></p>
     <p>Lights: <span id="light-count">0</span></p>
+    <p>Strain: <span id="strain-type">Sour Diesel</span></p>
   </div>
 
   <script src="game.js"></script>
