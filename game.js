@@ -18,7 +18,7 @@ const strains = ["Sour Diesel","Purple Urkle","Strawberry Milkshake", "Blue Drea
 const strainFile = ["Bud_SD.png", "Bud_PU.png","Bud_SM.png", "Bud_BB.png","Bud_PR.png", "Bud_NL.png", "Bud_G.png"]
 const strainPrices = [500,2000,5000,15000,50000,100000]
 const strainClick = [0,10,15,20,25,40,60]
-let budFile = "bud_SD.png"; 
+let budFile = "Bud_SD.png"; 
 
 
 //text display 
