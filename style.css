@@ -3,7 +3,7 @@ body {
   text-align: center;
   margin: 0;               /* remove default margin */
   height: 100vh;           /* full viewport height */
-/*  background-image: url('assets/background.png');
+  background-image: url('assets/background.png');
   background-size: cover;  
   background-position: center center;
   background-repeat: no-repeat;
@@ -40,6 +40,23 @@ body {
   height: 40px;
 }
 
+#bud {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/*#bud-count {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 40px;
+  padding: 5px 10px;
+  display: inline-block;
+  color: #222; 
+}*/
+
 #game-title {
   font-size: 18px;
   font-weight: bold;
@@ -64,6 +81,35 @@ body {
   text-align: left;
 }
 
+.image-crop {
+  display: inline-block;
+  text-align: center; /* Optional: center the text below image */
+}
+
+.image-wrapper {
+  width: 150px;       /* Adjust crop width */
+  height: 150px;      /* Adjust crop height */
+  overflow: hidden;   /* This crops the image */
+  border-radius: 10px;
+  margin-bottom: 10px; /* Space between image and text */
+}
+
+.cropped-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transform: translateY(-20px); /* Adjust this to crop off top white space */
+}
+
+/* Text styling (optional) */
+#bud-count {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 4px 10px;
+  display: inline-block;
+  color: #222;
+}
 
 
 

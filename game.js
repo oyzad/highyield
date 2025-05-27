@@ -13,19 +13,22 @@ let clickstrength = 1;
 let previousBudCount = 0;
 let calculatedBPS = 0;
 
-
-
-const strains = ["Sour Diesel","Purple Urkle","Blue Dream","Northern Lights"]
-const strainFile = ["Bud_SD.png", "Bud_PU.png", "Bud_BB.png", "Bud_NL.png"]
+// strains 
+const strains = ["Sour Diesel","Purple Urkle","Strawberry Milkshake", "Blue Dream","Pink Runtz", "Northern Lights", "Golden Ganja"]
+const strainFile = ["Bud_SD.png", "Bud_PU.png","Bud_SM.png", "Bud_BB.png","Bud_PR.png", "Bud_NL.png", "Bud_G.png"]
 const strainPrices = [500,2000,5000,15000,50000,100000]
-const strainClick = [0,10,15,20,25,40]
+const strainClick = [0,10,15,20,25,40,60]
 let budFile = "bud_SD.png"; 
 
-const budDisplay = document.getElementById('bud-count');
+
+//text display 
+const budDisplay = document.getElementById('bud-value');
 const cursorDisplay = document.getElementById('cursor-count');
 const lightDisplay = document.getElementById('light-count');
 const strainDisplay = document.getElementById('strain-type');
 const rackDisplay = document.getElementById('rack-count');
+
+// sounds 
 const clickSound = new Audio('assets/click.mp3');
 clickSound.volume = 0.3;
 const buySound = new Audio('assets/buy.mp3');
@@ -87,20 +90,31 @@ function buyLight(){
     updateDisplay();
   }
 }
-function upgradeStrain(){
-  if (buds >= strainPrices[strainNum]) {
+
+function upgradeStrain() {
+  if (strainNum < strains.length - 1) {
+    strainNum++;
+    document.getElementById('strain-type').textContent = strains[strainNum];
     strainSound.currentTime = 0;
     strainSound.play();
     buds -= strainPrice;
-    strainNum += 1;
     clickstrength += strainClick[strainNum];
     updateTooltips();
     updateShop();
     updateBudImage();
     updateDisplay();
-    
+  }
+
+  // remove button at last strain
+  if (strainNum === strains.length - 1) {     
+    const button = document.getElementById('upgrade-strain');
+    if (button) {
+     // button.remove();
+      button.style.display = 'none';
+    }
   }
 }
+
 
 setInterval(() => {
   buds += cursors;
