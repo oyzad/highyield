@@ -7,6 +7,8 @@ let strainNum = 0;
 let strainPrice = 500;
 let lights = 0;
 let lightPrice = 50;
+let racks = 0;
+let rackPrice = 1000;
 let clickstrength = 1;
 let previousBudCount = 0;
 let calculatedBPS = 0;
@@ -23,7 +25,7 @@ const budDisplay = document.getElementById('bud-count');
 const cursorDisplay = document.getElementById('cursor-count');
 const lightDisplay = document.getElementById('light-count');
 const strainDisplay = document.getElementById('strain-type');
-
+const rackDisplay = document.getElementById('rack-count');
 const clickSound = new Audio('assets/click.mp3');
 clickSound.volume = 0.3;
 const buySound = new Audio('assets/buy.mp3');
@@ -61,6 +63,17 @@ function buyCursor() {
     updateDisplay();
   }
 }
+function buyRack(){
+  if (buds >= rackPrice) {
+    buySound.currentTime = 0;
+    buySound.play();
+    buds -= rackPrice;
+    racks += 1;
+    updateShop();
+    updateDisplay();
+  }
+}
+
 function buyLight(){
   if (buds >= lightPrice) {
     buySound.currentTime = 0;
@@ -91,6 +104,7 @@ function upgradeStrain(){
 
 setInterval(() => {
   buds += cursors;
+  buds += 10 * racks;
   updateDisplay();
 }, 1000);
 
@@ -104,6 +118,7 @@ function updateDisplay() {
   cursorDisplay.textContent = cursors;
   lightDisplay.textContent = lights;
   strainDisplay.textContent = strains[strainNum];
+  rackDisplay.textContent = racks;
   updateStats();
   updateTooltips();
 }
@@ -135,5 +150,6 @@ function updateTooltips() {
 
 document.addEventListener("DOMContentLoaded", function () {
   updateShop(); // Run after DOM is ready
+  updateBudImage();
 });
 
