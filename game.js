@@ -93,17 +93,20 @@ function buyLight(){
 
 function upgradeStrain() {
   if (strainNum < strains.length - 1) {
+    if (buds >= strainPrice){
     strainNum++;
     document.getElementById('strain-type').textContent = strains[strainNum];
     strainSound.currentTime = 0;
     strainSound.play();
     buds -= strainPrice;
+    strainPrice = strainPrices[strainNum]
     clickstrength += strainClick[strainNum];
     updateTooltips();
     updateShop();
     updateBudImage();
     updateDisplay();
   }
+}
 
   // remove button at last strain
   if (strainNum === strains.length - 1) {     
