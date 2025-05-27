@@ -33,7 +33,8 @@ const clickSound = new Audio('assets/click.mp3');
 clickSound.volume = 0.3;
 const buySound = new Audio('assets/buy.mp3');
 const strainSound = new Audio('assets/strain-change.mp3');
-
+const errorSound = new Audio('assets/error.mp3');
+errorSound.volume = 0.5;
 
 
 
@@ -64,6 +65,9 @@ function buyCursor() {
     cursorPrice = Math.floor(cursorPrice * 1.5);
     updateShop();
     updateDisplay();
+  }else{
+    errorSound.currentTime = 0;
+    errorSound.play();
   }
 }
 function buyRack(){
@@ -74,6 +78,9 @@ function buyRack(){
     racks += 1;
     updateShop();
     updateDisplay();
+  }else{
+    errorSound.currentTime = 0;
+    errorSound.play();
   }
 }
 
@@ -88,6 +95,9 @@ function buyLight(){
     updateShop();
     updateStats();
     updateDisplay();
+  }else{
+    errorSound.currentTime = 0;
+    errorSound.play();
   }
 }
 
@@ -105,7 +115,10 @@ function upgradeStrain() {
     updateShop();
     updateBudImage();
     updateDisplay();
-  }
+    }else{
+      errorSound.currentTime = 0;
+      errorSound.play();
+    }
 }
 
   // remove button at last strain
