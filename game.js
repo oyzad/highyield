@@ -32,7 +32,16 @@ const strainSound = new Audio('assets/strain-change.mp3');
 
 
 
-document.getElementById("bud").addEventListener('click', () => {
+const bud = document.getElementById('bud');
+
+bud.addEventListener('click', () => {
+  // Remove class in case it's already there (to restart animation)
+  bud.classList.remove('wobble');
+
+  // Trigger reflow to restart animation
+  void bud.offsetWidth;
+  // Add the wobble class
+  bud.classList.add('wobble');
   clickSound.currentTime = 0; // rewind 
   clickSound.play();
   buds += clickstrength
