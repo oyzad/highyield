@@ -14,8 +14,8 @@ click to grow your fucking skitz farm
 
 1. **Click the bud** to grow your first plants.
 2. **Earn "Buds"** as currency to spend in the shop.
-3. **Buy upgrades** like Auto clicker Cursors, Grow Lights, Curing Racks, and Trimmers.
-4. **Automate production** with farmhands and strain research.
+3. **Buy upgrades** like Auto clicker Cursors, Grow Lights, Curing Racks.
+4. **Automate production** with farmhands and strain upgrades.
 5. **Scale up** to maximize passive income and prestige your farm!
 
 ---
