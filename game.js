@@ -124,7 +124,7 @@ setInterval(() => {
 
 function updateStats() {
   document.getElementById("buds-per-click").textContent = clickstrength;
-  document.getElementById("auto-harvest").textContent = cursors;
+  document.getElementById("auto-harvest").textContent = cursors + (racks * 10);
 }
 
 function updateDisplay() {
