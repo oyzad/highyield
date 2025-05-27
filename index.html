@@ -4,14 +4,26 @@
   <meta charset="UTF-8">
   <title>High Yield Clicker</title>
   <link rel="icon" href="assets/weed_logo.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
   <style>
     body { font-family: sans-serif; text-align: center; margin-top: 50px; }
     #bud { font-size: 100px; cursor: pointer; }
     .shop-item { margin-top: 10px; }
-  </style>
+    body { background-image: url('assets/background.png'); }
+ </style>
 </head>
 <body>
-  <h1>High Yield</h1>
+  <!--<h1>Click here</h1>-->
+    <div id="header">
+      <img src="assets/weed_logo.png" alt="Game Logo" width="125" id="logo" />
+      <span id="game-title">High Yield Clicker</span>
+    </div>
+    <div id="stats">
+      <p><strong>Buds per Click:</strong> <span id="buds-per-click">1</span></p>
+      <p><strong>Buds per Second:</strong> <span id="buds-per-second">0</span></p>
+      <p><strong>Auto-Harvest/sec:</strong> <span id="auto-harvest">0</span></p>
+    </div>
+
   <div>
     <img id="bud" src="assets/bud_SD.png" alt="Bud" width="250" style="cursor:pointer;" />
     <p>Bud: <span id="bud-count">0</span></p>
@@ -19,9 +31,19 @@
   
   <div id="shop">
     <h3>Shop</h3>
-    <button id="buy-cursor" class="shop-item" onclick="buyCursor()">Buy Cursor</button>
-    <button id="buy-light" class="shop-item" onclick="buyLight()">Buy light</button>
-    <button id="upgrade-strain" class="shop-item" onclick="upgradeStrain()">Upgrade Strain</button>
+    <div class="tooltip-wrapper" data-tooltip="Auto-harvests 1 bud per second.">
+      <button id="buy-cursor" class="shop-item" onclick="buyCursor()">Buy Cursor</button>
+    </div>
+
+    <div class="tooltip-wrapper" data-tooltip="Increases buds per click by 1.">
+      <button id="buy-light" class="shop-item" onclick="buyLight()">Buy Light</button>
+    </div>
+
+    <div class="tooltip-wrapper" id="strain-tooltip">
+      <button id="upgrade-strain" class="shop-item" onclick="upgradeStrain()">Upgrade Strain</button>
+    </div>
+
+
     <p>Cursors: <span id="cursor-count">0</span></p>
     <p>Lights: <span id="light-count">0</span></p>
     <p>Strain: <span id="strain-type">Sour Diesel</span></p>
