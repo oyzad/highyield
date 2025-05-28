@@ -76,6 +76,7 @@ function buyRack(){
     buySound.play();
     buds -= rackPrice;
     racks += 1;
+    rackPrice = Math.floor(rackPrice * 1.25)
     updateShop();
     updateDisplay();
   }else{
