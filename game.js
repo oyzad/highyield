@@ -82,6 +82,7 @@ function updateShop(){
   document.getElementById("buy-light").innerText = `Buy Light (${lightPrice} bud)`;
   document.getElementById("buy-rack").innerText = `Buy Rack (${rackPrice} bud)`;
   document.getElementById("upgrade-strain").innerText = `Upgrade Strain (${strainPrices[strainNum]} bud)`;
+  document.getElementById("upgrade-meth").innerText = `Upgrade Meth (${crystalPrices[crystalNum]} bud)`;
 }
 
 function buyCursor() {
@@ -138,13 +139,17 @@ function buyCrystal(){
       crystalNum++
       // update strain type need line 
       // play sound 
+      document.getElementById('crystal-type').textContent = meths[crystalNum];
       buds -= crystalPrice;
       crystalPrice = crystalPrices[crystalNum]
       updateTooltips();
       updateShop();
+      updateCrystalImage();
       updateDisplay();
 
-
+    }else{
+      errorSound.currentTime = 0;
+      errorSound.play();
     }
   }
 }
