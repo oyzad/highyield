@@ -23,11 +23,11 @@ let budFile = "Bud_SD.png";
 // meth types 
 const meths = ["Meth", "Red meth","Green Gem","Chilli P","Heisenburg"]
 const crystalFiles = ["Meth_W.png", "Meth_P.png","Meth_G.png", "Meth_R.png", "Meth_B.png"]
-const crystalPrices = [100000,200000, 500000, 1000000, 5000000]
+const crystalPrices = [500,2000,5000,15000,50000]
 const crystalClick = [9,14,19,24,49]
 let crystalFile = "Meth_W.png";
 let crystalNum = 0;
-let crystalPrice = 1000000;
+let crystalPrice = 500;
 let crystalClickStrength = 1;
 
 //text display 
@@ -82,7 +82,7 @@ function updateShop(){
   document.getElementById("buy-light").innerText = `Buy Light (${lightPrice} bud)`;
   document.getElementById("buy-rack").innerText = `Buy Rack (${rackPrice} bud)`;
   document.getElementById("upgrade-strain").innerText = `Upgrade Strain (${strainPrices[strainNum]} bud)`;
-  document.getElementById("upgrade-meth").innerText = `Upgrade Meth (${crystalPrices[crystalNum]} bud)`;
+  document.getElementById("upgrade-meth").innerText = `Upgrade Meth (${crystalPrices[crystalNum]} crystals)`;
 }
 
 function buyCursor() {
@@ -171,14 +171,15 @@ function upgradeStrain() {
 
 
 function buyCrystal(){
+  console.log("activated crytsal upgrade")
   if (crystalNum < meths.length - 1) {
-    if (buds >= crystalPrice){
+    if (crystals >= crystalPrice){
       crystalClickStrength += crystalClick[crystalNum]
       crystalNum++
       // update strain type need line 
       // play sound 
       document.getElementById('crystal-type').textContent = meths[crystalNum];
-      buds -= crystalPrice;
+      crystals -= crystalPrice;
       crystalPrice = crystalPrices[crystalNum]
       updateTooltips();
       updateShop();
