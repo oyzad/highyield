@@ -30,9 +30,12 @@
     <div class="image-crop">
       <div class="image-wrapper">
         <img src="assets/Bud_SD.png" alt="Bud" class="cropped-image" id="bud" />
+        <img src="assets/Meth_W.png" alt="Crystal" class="cropped-image" id="crystal" hidden/>
       </div>
       <p id="bud-count">Bud: <span id="bud-value">0</span></p>
+      <p id="crystal-counter">Crystals Clicked: <span id="crystal-count">0</span></p>
     </div>
+
 
   
   <div id="shop">
@@ -46,15 +49,18 @@
     </div>
 
     <div class="tooltip-wrapper" data-tooltip="Dries collected plants and auto-farms 10 buds per seocnd.">
-      <button id="buy-rack" class="shop-item" onclick="buyRack()">Buy Drying Rack (1000)</button>
+      <button id="buy-rack" class="shop-item" onclick="buyRack()">Buy Drying Rack</button>
     </div>
 
     <div class="tooltip-wrapper" id="strain-tooltip">
       <button id="upgrade-strain" class="shop-item" onclick="upgradeStrain()">Upgrade Strain</button>
     </div>
+    <div class="tooltip-wrapper" id="meth-tooltip">
+      <button id="upgrade-meth" class="shop-item" onclick="buyCrystal()" style="display:none;" >Upgrade Meth</button>
+    </div>
 
 
-    <p>Cursors: <span id="cursor-count">0</span></p>
+    <p>Trimmers: <span id="cursor-count">0</span></p>
     <p>Lights: <span id="light-count">0</span></p>
     <p>Racks: <span id="rack-count">0</span></p>
     <p>Strain: <span id="strain-type">Sour Diesel</span></p>
