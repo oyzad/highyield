@@ -78,7 +78,7 @@ body {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.85);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  text-align: left;
+  text-align: center;
 }
 
 .image-crop {
@@ -92,7 +92,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 20px; /* adds space between the bud and crystal */
-  width: 400px;       /* Adjust crop width */
+  width: 200px;       /* Adjust crop width */
   height: 200px;      /* Adjust crop height */
   overflow: hidden;   /* This crops the image */
   border-radius: 10px;

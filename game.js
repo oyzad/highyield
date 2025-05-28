@@ -21,7 +21,7 @@ const strainClick = [0,10,15,20,25,40,60]
 let budFile = "Bud_SD.png"; 
 
 // meth types 
-const meths = ["Meth", "Red meth","green","Chilli P","Heisenburg"]
+const meths = ["Meth", "Red meth","Green","Chilli P","Heisenburg"]
 const crystalFiles = ["Meth_W.png", "Meth_P.png","Meth_G.png", "Meth_R.png", "Meth_B.png"]
 const crystalPrices = [100000,200000, 500000, 1000000, 5000000]
 const crystalClick = [100,150,200,250,300]
@@ -78,7 +78,7 @@ bud.addEventListener('click', () => {
 });
 
 function updateShop(){
-  document.getElementById("buy-cursor").innerText = `Buy Cursor (${cursorPrice} bud)`;
+  document.getElementById("buy-cursor").innerText = `Buy Trimmers (${cursorPrice} bud)`;
   document.getElementById("buy-light").innerText = `Buy Light (${lightPrice} bud)`;
   document.getElementById("buy-rack").innerText = `Buy Rack (${rackPrice} bud)`;
   document.getElementById("upgrade-strain").innerText = `Upgrade Strain (${strainPrices[strainNum]} bud)`;
@@ -107,7 +107,7 @@ function buyRack(){
     buySound.play();
     buds -= rackPrice;
     racks += 1;
-    rackPrice = Math.floor(rackPrice * 1.25)
+    rackPrice = Math.floor(rackPrice * 1.15)
     updateShop();
     updateTooltips();
     updateDisplay();
@@ -133,26 +133,8 @@ function buyLight(){
     errorSound.play();
   }
 }
-function buyCrystal(){
-  if (crystalNum < crystals.length - 1) {
-    if (buds >= crystalPrice){
-      crystalNum++
-      // update strain type need line 
-      // play sound 
-      document.getElementById('crystal-type').textContent = meths[crystalNum];
-      buds -= crystalPrice;
-      crystalPrice = crystalPrices[crystalNum]
-      updateTooltips();
-      updateShop();
-      updateCrystalImage();
-      updateDisplay();
 
-    }else{
-      errorSound.currentTime = 0;
-      errorSound.play();
-    }
-  }
-}
+
 function upgradeStrain() {
   if (strainNum < strains.length - 1) {
     if (buds >= strainPrice){
@@ -181,12 +163,41 @@ function upgradeStrain() {
     const crystal = document.getElementById('crystal');
     let hidden = crystal.getAttribute("hidden");
     crystal.removeAttribute("hidden");
-
-    const buyCrystal = document.getElementById('upgrade-meth');
-    if (buyCrystal) buyCrystal.style.display = 'inline';
+    const buyingCrystal = document.getElementById('upgrade-meth');
+    if (buyingCrystal) buyingCrystal.style.display = 'inline';
+    document.querySelector('.image-wrapper').style.width = '400px';
+    console.log('Revealing crystal upgrade button');
   }
 }
 
+
+function buyCrystal(){
+  console.log('buyCrystal function fired'); // debug line
+  if (crystalNum < meths.length - 1) {
+    if (buds >= crystalPrice){
+      crystalNum++
+      console.log('clicked')
+      // update strain type need line 
+      // play sound 
+      document.getElementById('crystal-type').textContent = meths[crystalNum];
+      buds -= crystalPrice;
+      crystalPrice = crystalPrices[crystalNum]
+      updateTooltips();
+      updateShop();
+      updateCrystalImage();
+      updateDisplay();
+
+    }else{
+      errorSound.currentTime = 0;
+      errorSound.play();
+    }
+  // After updating strainNum, check if at final strain
+  if (crystalNum === meths.length - 1) {
+    const button = document.getElementById('upgrade-meth');
+    if (button) button.style.display = 'none';
+  }
+  }
+}
 
 setInterval(() => {
   buds += cursors;
