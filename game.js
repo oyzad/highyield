@@ -21,10 +21,10 @@ const strainClick = [0,10,15,20,25,40,60]
 let budFile = "Bud_SD.png"; 
 
 // meth types 
-const meths = ["Meth", "Red meth","Green","Chilli P","Heisenburg"]
+const meths = ["Meth", "Red meth","Green Gem","Chilli P","Heisenburg"]
 const crystalFiles = ["Meth_W.png", "Meth_P.png","Meth_G.png", "Meth_R.png", "Meth_B.png"]
 const crystalPrices = [100000,200000, 500000, 1000000, 5000000]
-const crystalClick = [100,150,200,250,300]
+const crystalClick = [9,14,19,24,49]
 let crystalFile = "Meth_W.png";
 let crystalNum = 0;
 let crystalPrice = 1000000;
@@ -59,7 +59,7 @@ if (crystal) {
     //buds += 100; 
     breakSound.currentTime = 0;
     breakSound.play();
-    crystals++;
+    crystals += crystalClickStrength;
     updateDisplay(); // update your UI
   });
 }
@@ -166,17 +166,15 @@ function upgradeStrain() {
     const buyingCrystal = document.getElementById('upgrade-meth');
     if (buyingCrystal) buyingCrystal.style.display = 'inline';
     document.querySelector('.image-wrapper').style.width = '400px';
-    console.log('Revealing crystal upgrade button');
   }
 }
 
 
 function buyCrystal(){
-  console.log('buyCrystal function fired'); // debug line
   if (crystalNum < meths.length - 1) {
     if (buds >= crystalPrice){
+      crystalClickStrength += crystalClick[crystalNum]
       crystalNum++
-      console.log('clicked')
       // update strain type need line 
       // play sound 
       document.getElementById('crystal-type').textContent = meths[crystalNum];
